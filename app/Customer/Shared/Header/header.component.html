@@ -182,8 +182,10 @@
 												</li>                               
 												<li><a href="#">Categories</a>
 													<ul>
-														<li><a href="#">Category 1</a></li>
-														<li><a href="#">Category 2</a></li>
+														<li *ngFor="let category of categories">
+															<a [routerLink]="['/category',category.id]">{{category.categoryName}}</a>
+														</li>
+														
 													</ul>
 												</li>
 												<li><a href="#">Color</a></li>

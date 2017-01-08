@@ -10,6 +10,7 @@ var contact_component_1 = require('./Customer/Contact/contact.component');
 var blog_component_1 = require('./Customer/Blog/blog.component');
 var blogdetail_component_1 = require('./Customer/BlogDetail/blogdetail.component');
 var notfound_component_1 = require('./Customer/NotFound/notfound.component');
+var categorydetail_component_1 = require('./Customer/CategoryDetail/categorydetail.component');
 var routing = [
     { path: '', component: home_component_1.HomeComponent },
     { path: 'wishlist', component: wishlist_component_1.WishListComponent },
@@ -20,6 +21,7 @@ var routing = [
     { path: 'contact', component: contact_component_1.ContactComponent },
     { path: 'blog', component: blog_component_1.BlogComponent },
     { path: 'blog-detail/:id', component: blogdetail_component_1.BlogDetailsComponent },
+    { path: 'category/:id', component: categorydetail_component_1.CategoryDetailComponent },
     { path: '**', component: notfound_component_1.NotFoundComponent }
 ];
 exports.appRoutes = router_1.RouterModule.forRoot(routing);

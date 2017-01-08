@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
@@ -25,9 +26,10 @@ import { NotFoundComponent } from './Customer/NotFound/notfound.component';
 import { CheckOutComponent } from './Customer/CheckOut/checkout.component';
 import { ContactComponent } from './Customer/Contact/contact.component';
 import { LoginComponent } from './Customer/Login/login.component';
+import { CategoryDetailComponent } from './Customer/CategoryDetail/categorydetail.component';
 
 @NgModule({
-  imports: [BrowserModule, appRoutes],
+  imports: [BrowserModule, HttpModule,appRoutes],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -49,7 +51,8 @@ import { LoginComponent } from './Customer/Login/login.component';
     NotFoundComponent,
     CheckOutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    CategoryDetailComponent
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]

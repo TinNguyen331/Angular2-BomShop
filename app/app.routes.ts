@@ -10,6 +10,7 @@ import { ContactComponent } from './Customer/Contact/contact.component';
 import { BlogComponent } from './Customer/Blog/blog.component';
 import { BlogDetailsComponent } from './Customer/BlogDetail/blogdetail.component';
 import { NotFoundComponent } from './Customer/NotFound/notfound.component';
+import { CategoryDetailComponent } from './Customer/CategoryDetail/categorydetail.component';
 
 const routing: Routes = [
     { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ const routing: Routes = [
     { path: 'contact',component:ContactComponent},
     { path: 'blog',component:BlogComponent},
     { path: 'blog-detail/:id',component: BlogDetailsComponent},
+    { path: 'category/:id',component:CategoryDetailComponent},
     { path: '**',component:NotFoundComponent}
     
 

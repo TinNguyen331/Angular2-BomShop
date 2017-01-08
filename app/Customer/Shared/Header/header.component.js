@@ -9,10 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var header_service_1 = require('./header.service');
 var HeaderComponent = (function () {
-    function HeaderComponent(el) {
+    function HeaderComponent(el, headerService) {
         this.el = el;
+        this.headerService = headerService;
     }
+    HeaderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.headerService.GetCategoriesList().subscribe(function (response) {
+            _this.categories = response;
+        });
+    };
     HeaderComponent.prototype.ngAfterViewInit = function () {
         $(this.el.nativeElement).ready(function () {
             /*-------------------------------------
@@ -243,15 +251,14 @@ var HeaderComponent = (function () {
             }); // end of scrool function
         });
     };
-    HeaderComponent.prototype.ngOnInit = function () {
-    };
     HeaderComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-header',
-            templateUrl: 'header.component.html'
+            templateUrl: 'header.component.html',
+            providers: [header_service_1.HeaderService]
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
+        __metadata('design:paramtypes', [core_1.ElementRef, header_service_1.HeaderService])
     ], HeaderComponent);
     return HeaderComponent;
 }());

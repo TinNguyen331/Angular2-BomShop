@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var common_1 = require('@angular/common');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var app_routes_1 = require('./app.routes');
 var header_component_1 = require('./Customer/Shared/Header/header.component');
@@ -33,12 +34,13 @@ var notfound_component_1 = require('./Customer/NotFound/notfound.component');
 var checkout_component_1 = require('./Customer/CheckOut/checkout.component');
 var contact_component_1 = require('./Customer/Contact/contact.component');
 var login_component_1 = require('./Customer/Login/login.component');
+var categorydetail_component_1 = require('./Customer/CategoryDetail/categorydetail.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routes_1.appRoutes],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routes_1.appRoutes],
             declarations: [
                 app_component_1.AppComponent,
                 header_component_1.HeaderComponent,
@@ -60,7 +62,8 @@ var AppModule = (function () {
                 notfound_component_1.NotFoundComponent,
                 checkout_component_1.CheckOutComponent,
                 contact_component_1.ContactComponent,
-                login_component_1.LoginComponent
+                login_component_1.LoginComponent,
+                categorydetail_component_1.CategoryDetailComponent
             ],
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
             bootstrap: [app_component_1.AppComponent]

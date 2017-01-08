@@ -1,16 +1,24 @@
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
+import { HeaderService } from './header.service'; 
 declare var $: any;
 declare var WOW:any;
 
 @Component({
     moduleId: module.id,
     selector: 'customer-header',
-    templateUrl: 'header.component.html'
+    templateUrl: 'header.component.html',
+    providers:[HeaderService]
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-    constructor(private el: ElementRef) {
+    public categories:any[];
+    constructor(private el: ElementRef,private headerService:HeaderService) {
 
+    }
+    ngOnInit() {
+       this.headerService.GetCategoriesList().subscribe((response:any)=>{
+           this.categories =response;
+       });
     }
 
   ngAfterViewInit() {
@@ -278,8 +286,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     });// end of scrool function
         });
     }
-    ngOnInit() {
-
-    }
+    
 
 }
