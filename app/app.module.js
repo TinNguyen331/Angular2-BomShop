@@ -10,9 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var common_1 = require('@angular/common');
 var app_component_1 = require('./app.component');
+var app_routes_1 = require('./app.routes');
 var header_component_1 = require('./Customer/Shared/Header/header.component');
-var headershop_component_1 = require('./Customer/Shared/HeaderShop/headershop.component');
 var advantage_component_1 = require('./Customer/Shared/Advantage/advantage.component');
 var slider_component_1 = require('./Customer/Slider/slider.component');
 var categories_component_1 = require('./Customer/Categories/categories.component');
@@ -31,16 +32,16 @@ var wishlist_component_1 = require('./Customer/Wishlist/wishlist.component');
 var notfound_component_1 = require('./Customer/NotFound/notfound.component');
 var checkout_component_1 = require('./Customer/CheckOut/checkout.component');
 var contact_component_1 = require('./Customer/Contact/contact.component');
+var login_component_1 = require('./Customer/Login/login.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule, app_routes_1.appRoutes],
             declarations: [
                 app_component_1.AppComponent,
                 header_component_1.HeaderComponent,
-                headershop_component_1.HeaderShopComponent,
                 advantage_component_1.AdvantageComponent,
                 slider_component_1.SliderComponent,
                 categories_component_1.CategoriesComponent,
@@ -58,8 +59,10 @@ var AppModule = (function () {
                 wishlist_component_1.WishListComponent,
                 notfound_component_1.NotFoundComponent,
                 checkout_component_1.CheckOutComponent,
-                contact_component_1.ContactComponent
+                contact_component_1.ContactComponent,
+                login_component_1.LoginComponent
             ],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

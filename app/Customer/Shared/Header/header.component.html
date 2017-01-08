@@ -7,14 +7,14 @@
 								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
 									<div class="account-wishlist">
 										<ul>
-											<li><a href="login-registration.html"><i class="fa fa-lock" aria-hidden="true"></i> Account</a></li>
-											<li><a href="wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i> Wishlist</a></li>
+											<li><a routerLink="login"><i class="fa fa-lock" aria-hidden="true"></i> Account</a></li>
+											<li><a routerLink="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i> Wishlist</a></li>
 										</ul>
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-2 hidden-xs">
 									<div class="logo-area">
-										<a href="index.html"><img class="img-responsive" src="assist/img/logo.png" alt="logo"></a>
+										<a routerLink=""><img class="img-responsive" src="assist/img/logo.png" alt="logo"></a>
 									</div>
 								</div>  
 								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
@@ -93,8 +93,8 @@
 													</li>
 													<li>
 														<ul class="checkout">
-															<li><a href="cart.html" class="btn-checkout"><i class="fa fa-shopping-cart" aria-hidden="true"></i>View Cart</a></li>
-															<li><a href="check-out.html" class="btn-checkout"><i class="fa fa-share" aria-hidden="true"></i>Checkout</a></li>
+															<li><a routerLink="cart" class="btn-checkout"><i class="fa fa-shopping-cart" aria-hidden="true"></i>View Cart</a></li>
+															<li><a routerLink="checkout" class="btn-checkout"><i class="fa fa-share" aria-hidden="true"></i>Checkout</a></li>
 														</ul>
 													</li>
 												</ul>
@@ -178,65 +178,20 @@
 									<div class="main-menu-area home2-sticky-area">
 										<nav>
 											<ul>
-												<li class="active"><a href="#">Home</a>
-													<ul>
-														<li><a href="index.html">Home 1</a></li>
-														<li><a class="active" href="index2.html">Home 2</a></li>
-														<li><a href="index3.html">Home 3</a></li>
-														<li><a href="index4.html">Home 4</a></li>
-													</ul>
+												<li class="active"><a routerLink="">Home</a>
 												</li>                               
-												<li><a href="shop7.html">Fashion</a></li>
-												<li><a href="shop3.html">Electornics</a></li>
-												<li><a href="shop4.html">Jewellery</a></li>
-												<li><a href="#">Blog</a>
+												<li><a href="#">Categories</a>
 													<ul>
-														<li><a href="blog.html">Blog</a></li>
-														<li><a href="single-blog.html">Single Blog</a></li>
-													</ul>	
-												</li>											
-												<li><a href="#">Pages</a>
-													<ul class="mega-menu-area">
-														<li>
-															<a href="index.html">Home 1</a>
-															<a href="index2.html">Home 2</a>
-															<a href="index3.html">Home 3</a>
-															<a href="index4.html">Home 4</a>
-														</li>	
-														<li>
-															<a href="about.html">About Us</a>
-															<a href="blog.html">Blog</a>
-															<a href="single-blog.html">Single Blog 2</a>
-															<a href="portfolio1.html">Portfolio 1</a>
-														</li>	
-														<li>
-															<a href="portfolio2.html">Portfolio 2</a>
-															<a href="wishlist.html">Wishlist</a>
-															<a href="shop1.html">Shop 1</a>
-															<a href="shop2.html">Shop 2</a>
-														</li>
-														<li>
-															<a href="shop3.html">Shop 3</a>
-															<a href="shop4.html">Shop 4</a>
-															<a href="shop5.html">Shop 5</a>
-															<a href="shop6.html">Shop 6</a>
-														</li>
-														<li>
-															<a href="shop7.html">Shop 7</a>
-															<a href="product-details1.html">Product Details 1</a>
-															<a href="product-details2.html">Product Details 2</a>
-															<a href="login-registration.html">Login Registration</a>
-														</li>
-														<li>
-															<a href="cart.html">Cart</a>
-															<a href="check-out.html">Check Out</a>
-															<a href="404.html">404</a>
-															<a href="contact.html">Contact</a>
-														</li>	
-													</ul>							
-												</li> 
-												<li><a href="#">About</a></li>
-												<li><a href="contact.html">Contact</a></li>
+														<li><a href="#">Category 1</a></li>
+														<li><a href="#">Category 2</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Color</a></li>
+												<li><a href="#">Flower</a></li>
+												<li><a routerLink="blog">Blog</a></li>											
+												<li><a href="#">Gift</a></li> 
+												<li><a routerLink="about">About</a></li>
+												<li><a routerLink="contact">Contact</a></li>
 											</ul>
 										</nav>
 									</div>
@@ -251,13 +206,7 @@
 										<div class="mobile-menu">
 											<nav id="dropdown">
 												<ul>
-													<li class="active"><a href="#">Home</a>
-														<ul>
-															<li><a href="index.html">Home 1</a></li>
-															<li><a href="index2.html">Home 2</a></li>
-															<li><a href="index3.html">Home 3</a></li>
-															<li><a href="index4.html">Home 4</a></li>	
-														</ul>	
+													<li class="active"><a routerLink="">Home</a>
 													</li>
 													<li><a href="about.html">About</a></li>
 													<li><a href="#">Blog</a>

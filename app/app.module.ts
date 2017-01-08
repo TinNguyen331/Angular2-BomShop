@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
+import { appRoutes } from './app.routes';
 
 import { HeaderComponent } from './Customer/Shared/Header/header.component';
-import { HeaderShopComponent } from './Customer/Shared/HeaderShop/headershop.component';
 import { AdvantageComponent } from './Customer/Shared/Advantage/advantage.component';
 import { SliderComponent } from './Customer/Slider/slider.component';
 import { CategoriesComponent } from './Customer/Categories/categories.component';
@@ -23,13 +24,13 @@ import { WishListComponent } from './Customer/Wishlist/wishlist.component';
 import { NotFoundComponent } from './Customer/NotFound/notfound.component';
 import { CheckOutComponent } from './Customer/CheckOut/checkout.component';
 import { ContactComponent } from './Customer/Contact/contact.component';
+import { LoginComponent } from './Customer/Login/login.component';
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [BrowserModule, appRoutes],
   declarations: [
     AppComponent,
     HeaderComponent,
-    HeaderShopComponent,
     AdvantageComponent,
     SliderComponent,
     CategoriesComponent,
@@ -47,8 +48,10 @@ import { ContactComponent } from './Customer/Contact/contact.component';
     WishListComponent,
     NotFoundComponent,
     CheckOutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

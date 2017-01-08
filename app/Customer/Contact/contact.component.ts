@@ -1,9 +1,7 @@
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
-import { HeaderShopComponent } from '../Shared/HeaderShop/headershop.component';
-import { FooterComponent } from '../Shared/Footer/footer.component';
- 
 declare var $: any;
 declare var google: any;
+
 
 @Component({
     moduleId: module.id,
@@ -12,12 +10,14 @@ declare var google: any;
 })
 export class ContactComponent implements OnInit, AfterViewInit {
     constructor(private el: ElementRef) { }
+    private map:any;
     onMapsReady() {
         let brussels = new google.maps.LatLng(10.849774, 106.768527);
         var mapOptions = {
             zoom: 15,
             center: brussels
         };
+        
         this.map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
         var marker = new google.maps.Marker({
             position: brussels
