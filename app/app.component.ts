@@ -10,8 +10,9 @@ import { ContactComponent } from './Customer/Contact/contact.component';
 
 @Component({
   selector: 'my-app',
+  moduleId: module.id,
   template: `
-  <customer-contact></customer-contact>
+  <customer-about></customer-about>
   `,
 })
 export class AppComponent { }

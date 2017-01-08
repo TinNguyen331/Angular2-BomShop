@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../Customer/Shared/Header/header.component';
+import { HeaderShopComponent } from '../../Customer/Shared/HeaderShop/headershop.component';
 import { SliderComponent } from '../../Customer/Slider/slider.component';
 import { CategoriesComponent } from '../../Customer/Categories/categories.component';
 import { FeatureComponent } from '../../Customer/FeaturedProduct/featured.component';

@@ -10,15 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(el) {
+        this.el = el;
     }
+    HeaderComponent.prototype.ngAfterViewInit = function () {
+        $(this.el.nativeElement).ready(function () {
+            $('nav#dropdown').meanmenu({ siteLogo: "<a href='index.html' class='logo-mobile-menu'><img src='assist/img/logo.png' /></a>" });
+        });
+    };
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
     HeaderComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-header',
             templateUrl: 'header.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef])
     ], HeaderComponent);
     return HeaderComponent;
 }());

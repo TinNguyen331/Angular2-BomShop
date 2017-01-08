@@ -946,7 +946,7 @@ ul {
 1.6 Preloader styles
 --------------------------------------*/
 #preloader {
-  background: #ffffff url('app/Customer/img/preloader.gif') no-repeat scroll center center;
+  background: #ffffff url('assist/img/preloader.gif') no-repeat scroll center center;
   height: 100%;
   left: 0;
   overflow: visible;
@@ -3197,7 +3197,7 @@ ul {
 4. Inner Page Bennar Area styles
 ==========================================*/
 .inner-page-banner-area {
-  background: url(app/Customer/img/inner-page-banner.jpg);
+  background: url(assist/img/inner-page-banner.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -5267,7 +5267,7 @@ ul {
   bottom: 0;
   z-index: 2;
   padding: 20px 35px;
-  background: url(app/Customer/img/blog/blog-mask.png);
+  background: url(assist/img/blog/blog-mask.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

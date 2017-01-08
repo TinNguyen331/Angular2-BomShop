@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { HeaderShopComponent } from '../Shared/HeaderShop/headershop.component';
 import { FooterComponent } from '../Shared/Footer/footer.component';
-
+ 
 declare var $: any;
 declare var google: any;
 
