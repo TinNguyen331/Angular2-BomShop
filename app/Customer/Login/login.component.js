@@ -19,7 +19,9 @@ var LoginComponent = (function () {
         console.log(value);
         this.loginService.Login(value).subscribe(function (response) {
             _this.user = response;
-            console.log(response);
+        }, function (error) {
+            if (error.status == 404)
+                alert("Tai Khoan Khong Ton Tai");
         });
     };
     LoginComponent.prototype.ngOnInit = function () {

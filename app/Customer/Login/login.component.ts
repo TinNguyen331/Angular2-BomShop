@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
         console.log(value);
         this.loginService.Login(value).subscribe((response:any)=>{
            this.user =response;
-           console.log(response);
+       },error=>{
+           if(error.status == 404 )
+           alert("Tai Khoan Khong Ton Tai");
        });
     }
     constructor(private loginService:LoginService) {

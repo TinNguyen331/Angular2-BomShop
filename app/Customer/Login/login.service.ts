@@ -9,6 +9,6 @@ export class LoginService {
     private apiUrl="http://localhost:8080/login";
     constructor(private _http:Http) { }
     Login(data:any): Observable<any> {
-        return this._http.post(this.apiUrl,data).map((response:Response) => response.json())
+        return this._http.post(this.apiUrl,data).map((response:Response) => response.json());
     } 
 }
