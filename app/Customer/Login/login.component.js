@@ -9,17 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var login_service_1 = require('./login.service');
 var LoginComponent = (function () {
-    function LoginComponent() {
+    function LoginComponent(loginService) {
+        this.loginService = loginService;
     }
-    LoginComponent.prototype.ngOnInit = function () { };
+    LoginComponent.prototype.Login = function (value) {
+        var _this = this;
+        console.log(value);
+        this.loginService.Login(value).subscribe(function (response) {
+            _this.user = response;
+            console.log(response);
+        });
+    };
+    LoginComponent.prototype.ngOnInit = function () {
+    };
     LoginComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-login',
-            templateUrl: 'login.component.html'
+            templateUrl: 'login.component.html',
+            providers: [login_service_1.LoginService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [login_service_1.LoginService])
     ], LoginComponent);
     return LoginComponent;
 }());

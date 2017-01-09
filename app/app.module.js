@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var common_1 = require('@angular/common');
 var http_1 = require('@angular/http');
+var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var app_routes_1 = require('./app.routes');
 var header_component_1 = require('./Customer/Shared/Header/header.component');
@@ -40,7 +41,7 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routes_1.appRoutes],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
             declarations: [
                 app_component_1.AppComponent,
                 header_component_1.HeaderComponent,

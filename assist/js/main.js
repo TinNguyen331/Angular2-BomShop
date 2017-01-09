@@ -210,13 +210,6 @@
     });
 
     /*-------------------------------------
-     Countdown activation code
-     -------------------------------------*/
-    $('#countdown').countdown('2018/01/01', function (e) {
-        $(this).html(e.strftime("<div class='countdown-section'><h3>%-d</h3> <p>day%!d<p> </div><div class='countdown-section'><h3>%H</h3> <p>Hour%!H</p> </div><div class='countdown-section'><h3>%M</h3> <p>Min%!M</p> </div><div class='countdown-section'><h3>%S</h3> <p>Sec%!S</p> </div>"));
-    });
-
-    /*-------------------------------------
      Contact Form activation code
      -------------------------------------*/
     if ($('#contact-form').length) {

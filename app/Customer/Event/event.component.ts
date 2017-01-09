@@ -6,8 +6,7 @@ declare var $: any;
     templateUrl: 'event.component.html'
 })
 export class EventComponent implements OnInit, AfterViewInit {
-    private eventDay= '2017/01/09';
-    
+    public dateEvent='2017/01/10';
     constructor(private el: ElementRef) { }
     ngAfterViewInit() {
         $(this.el.nativeElement).ready(function () {
@@ -15,7 +14,7 @@ export class EventComponent implements OnInit, AfterViewInit {
             /*-------------------------------------
             Countdown activation code
             -------------------------------------*/
-            $('#countdown').countdown('2017/09/01', function (e:any) {
+            $('#countdown').countdown('2017/01/10', function (e:any) {
                 $(this).html(e.strftime("<div class='countdown-section'><h3>%-d</h3> <p>day%!d<p> </div><div class='countdown-section'><h3>%H</h3> <p>Hour%!H</p> </div><div class='countdown-section'><h3>%M</h3> <p>Min%!M</p> </div><div class='countdown-section'><h3>%S</h3> <p>Sec%!S</p> </div>"));
             });
         });

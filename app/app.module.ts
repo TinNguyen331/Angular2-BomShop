@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
@@ -29,7 +30,7 @@ import { LoginComponent } from './Customer/Login/login.component';
 import { CategoryDetailComponent } from './Customer/CategoryDetail/categorydetail.component';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule,appRoutes],
+  imports: [BrowserModule, FormsModule ,HttpModule,appRoutes],
   declarations: [
     AppComponent,
     HeaderComponent,
