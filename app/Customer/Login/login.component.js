@@ -21,11 +21,23 @@ var LoginComponent = (function () {
             _this.user = response;
         }, function (error) {
             if (error.status == 404)
-                alert("Tai Khoan Khong Ton Tai");
+                console.log("Tai Khoan Khong Ton Tai");
         });
     };
-    LoginComponent.prototype.ngOnInit = function () {
+    LoginComponent.prototype.Register = function (value) {
+        console.log(value);
+        if (value.passWord != value.confimPassWord) {
+            console.log("PassWord do not match");
+        }
+        else {
+            this.loginService.Register(value).subscribe(function (response) {
+                console.log(response);
+            }, function (error) {
+                console.log(error);
+            });
+        }
     };
+    LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

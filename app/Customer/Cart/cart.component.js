@@ -9,17 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var cart_service_1 = require('../CartService/cart.service');
+var checkout_service_1 = require('../CheckoutService/checkout.service');
 var CartComponent = (function () {
-    function CartComponent() {
+    function CartComponent(cartService, checkoutService) {
+        this.cartService = cartService;
+        this.checkoutService = checkoutService;
+        this.cart = [];
     }
-    CartComponent.prototype.ngOnInit = function () { };
+    CartComponent.prototype.onPlus = function (pro) {
+        console.log(pro);
+        if (pro.quantity < 10)
+            pro.quantity++;
+    };
+    CartComponent.prototype.onMinius = function (pro) {
+        console.log(pro);
+        if (pro.quantity > 1)
+            pro.quantity--;
+    };
+    CartComponent.prototype.updateCart = function () {
+        this.cartService.updateCart(this.cart);
+    };
+    CartComponent.prototype.checkout = function () {
+        this.checkoutService.checkout().subscribe(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    CartComponent.prototype.ngOnInit = function () {
+        this.cart = this.cartService.getCart();
+    };
     CartComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-cart',
             templateUrl: 'cart.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [cart_service_1.CartService, checkout_service_1.CheckOutService])
     ], CartComponent);
     return CartComponent;
 }());

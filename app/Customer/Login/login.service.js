@@ -15,9 +15,13 @@ var LoginService = (function () {
     function LoginService(_http) {
         this._http = _http;
         this.apiUrl = "http://localhost:8080/login";
+        this.apiSignUpUrl = "http://localhost:8080/signup";
     }
     LoginService.prototype.Login = function (data) {
         return this._http.post(this.apiUrl, data).map(function (response) { return response.json(); });
+    };
+    LoginService.prototype.Register = function (data) {
+        return this._http.post(this.apiSignUpUrl, data).map(function (response) { return response.json(); });
     };
     LoginService = __decorate([
         core_1.Injectable(), 

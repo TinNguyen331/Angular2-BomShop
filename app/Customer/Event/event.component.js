@@ -12,19 +12,13 @@ var core_1 = require('@angular/core');
 var EventComponent = (function () {
     function EventComponent(el) {
         this.el = el;
-        this.dateEvent = '2017/01/10';
+        this.dateEvent = '2017/01/13';
     }
-    EventComponent.prototype.ngAfterViewInit = function () {
-        $(this.el.nativeElement).ready(function () {
-            /*-------------------------------------
-            Countdown activation code
-            -------------------------------------*/
-            $('#countdown').countdown('2017/01/10', function (e) {
-                $(this).html(e.strftime("<div class='countdown-section'><h3>%-d</h3> <p>day%!d<p> </div><div class='countdown-section'><h3>%H</h3> <p>Hour%!H</p> </div><div class='countdown-section'><h3>%M</h3> <p>Min%!M</p> </div><div class='countdown-section'><h3>%S</h3> <p>Sec%!S</p> </div>"));
-            });
+    EventComponent.prototype.ngOnInit = function () {
+        $('#countdown').countdown(this.dateEvent, function (e) {
+            $(this).html(e.strftime("<div class='countdown-section'><h3>%-d</h3> <p>day%!d<p> </div><div class='countdown-section'><h3>%H</h3> <p>Hour%!H</p> </div><div class='countdown-section'><h3>%M</h3> <p>Min%!M</p> </div><div class='countdown-section'><h3>%S</h3> <p>Sec%!S</p> </div>"));
         });
     };
-    EventComponent.prototype.ngOnInit = function () { };
     EventComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

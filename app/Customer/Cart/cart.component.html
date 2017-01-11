@@ -35,50 +35,30 @@
 					                    </tr>
 					                </thead>
 					                <tbody id="quantity-holder">
-					                    <tr>
+					                    <tr *ngFor="let pro of cart">
 					                    	<td class="cart-img-holder">
 					                    		<a href="#"><img src="assist/img/product/cart1.jpg" alt="cart" class="img-responsive"></a>
 					                    	</td>
 					                    	<td>
-												<h3><a href="#">Product Title Name</a></h3>
+												<h3><a href="#">{{pro.productName}}</a></h3>
 					                    	</td>
-					                    	<td class="amount">$59.00</td>
+					                    	<td class="amount">{{pro.productPrice | currency:'VND':true:'1.0-1'}}</td>
 					                    	<td class="quantity">
 					                    		<div class="input-group quantity-holder">
-												    <input type="text" name='quantity' class="form-control quantity-input" value="1" placeholder="1">
+												    <input type="text" name='quantity' class="form-control quantity-input" [value]="pro.quantity" placeholder="1">
 												    <div class="input-group-btn-vertical">
-													    <button class="btn btn-default quantity-plus" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
-													    <button class="btn btn-default quantity-minus" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
+														<button class="btn btn-default quantity-plus" type="button" (click)="onPlus(pro)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+													    <button class="btn btn-default quantity-minus" type="button" (click)="onMinius(pro)"><i class="fa fa-minus" aria-hidden="true"></i></button>
 												    </div>
 												</div>
 					                    	</td>
-					                    	<td class="amount">$59.00</td>
-					                    	<td class="dismiss"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-					                    </tr>
-					                    <tr>
-					                    	<td class="cart-img-holder">
-					                    		<a href="#"><img src="assist/img/product/cart2.jpg" alt="cart" class="img-responsive"></a>
-					                    	</td>
-					                    	<td>
-												<h3><a href="#">Product Title Name</a></h3>
-					                    	</td>
-					                    	<td class="amount">$59.00</td>
-					                    	<td class="quantity">
-					                    		<div class="input-group quantity-holder">
-												    <input type="text" name='quantity' class="form-control quantity-input" value="1" placeholder="1">
-												    <div class="input-group-btn-vertical">
-													    <button class="btn btn-default quantity-plus" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
-													    <button class="btn btn-default quantity-minus" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
-												    </div>
-												</div>
-					                    	</td>
-					                    	<td class="amount">$59.00</td>
+					                    	<td class="amount">{{pro.productPrice * pro.quantity | currency:'VND':true:'1.0-1'}}</td>
 					                    	<td class="dismiss"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
 					                    </tr>
 					                </tbody>
 					            </table>
 								<div class="update-button">
-									 <button class="btn-apply-coupon disabled" type="submit" value="Login">Update Cart</button>
+									 <button class="btn-apply-coupon disabled" type="submit" value="Login" (click)="updateCart()">Update Cart</button>
 								</div>
 							</div>
 						</div>
@@ -99,7 +79,7 @@
 								<h3>Subtotal<span>$ 118.00</span></h3>
 								<h3>Total<span>$ 118.00</span></h3>
 								<div class="proceed-button">
-									 <button class="btn-apply-coupon disabled" type="submit" value="Login">Proceed To Checkout</button>
+									 <button class="btn-apply-coupon disabled" type="submit" value="Login" (click)="checkout()">Proceed To Checkout</button>
 								</div>
 							</div>
 						</div>

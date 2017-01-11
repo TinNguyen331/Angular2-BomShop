@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './Customer/Shared/Header/header.component';
 import { FooterComponent } from './Customer/Shared/Footer/footer.component'; 
+
 declare var $:any;
 
 @Component({
@@ -8,4 +9,8 @@ declare var $:any;
   moduleId: module.id,
   templateUrl: 'app.component.html',
 })
-export class AppComponent { }
+export class AppComponent { 
+  constructor(){
+  }
+  
+}

@@ -1,84 +1,45 @@
-import { Component, OnInit,ElementRef,AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit, ViewContainerRef } from '@angular/core';
+import { FeaturedService } from './featured.service';
+import { BrowserModule } from '@angular/platform-browser'
+import { MaterialModule } from '@angular/material';
+import { DialogComponent } from '../DialogProduct/dialog.component';
+import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 declare var $: any;
 
 @Component({
     moduleId: module.id,
     selector: 'customer-feature',
-    templateUrl: 'featured.component.html'
+    templateUrl: 'featured.component.html',
+    providers: [FeaturedService]
 })
-export class FeatureComponent implements OnInit ,AfterViewInit{
-    constructor(private el:ElementRef) { }
+export class FeatureComponent implements OnInit, AfterViewInit {
+     dialogRef: MdDialogRef<any>;
+    private productList: any[];
 
-    ngAfterViewInit(){
-        $(this.el.nativeElement).ready(function(){
-            /*-------------------------------------
-             jquery Featured Products slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 3,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 2],
-            });
-
-
-            /*-------------------------------------
-             jquery Featured Products 2 slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel2').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 4,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 2],
-            });
-
-
-            /*-------------------------------------
-             jquery Featured product 3 slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel3').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 4,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 4],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 1],
-            });
-
-
-            /*-------------------------------------
-             jquery Featured Products 4 slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel4').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 5,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 1],
-            });
-        });
+    constructor(private el: ElementRef, private featureService: FeaturedService, public dialog: MdDialog, public viewContainerRef: ViewContainerRef) {
     }
 
-    ngOnInit() { }
+    open(product: any) {
+        console.log(product);
+        let config = new MdDialogConfig();
+        config.viewContainerRef = this.viewContainerRef;
+
+        this.dialogRef = this.dialog.open(DialogComponent, config);
+        this.dialogRef.componentInstance.product = product;
+        this.dialogRef.afterClosed().subscribe(result => {
+            this.dialogRef = null;
+        });
+
+    }
+    ngOnInit() {
+        console.log("OnInit");
+        //console.log(this.productList);
+        this.featureService.GetProductList().subscribe((response: any) => {
+            this.productList = response;
+        });
+    }
+    ngAfterViewInit() {
+        console.log("On AfterViewInit");
+
+    }
 }

@@ -36,13 +36,13 @@
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="login-registration-field">
 					<h2 class="cart-area-title">Register</h2>
-					<form>
+					<form #registerForm="ngForm" (ngSubmit)="Register(registerForm.value)">
 						<label>User Name *</label>
-						<input type="text" placeholder="Name" />
-						<label>Email address *</label>
-						<input type="text" placeholder="E-mail" />
+						<input type="text" placeholder="Name" ngModel name="userName" />
 						<label>Password *</label>
-						<input type="password" placeholder="Password" />
+						<input type="password" placeholder="Password" ngModel name="passWord" />
+						<label>Confim Password *</label>
+						<input type="text" placeholder="Confim Password" ngModel name="confimPassWord"/>
 						<button class="btn-send-message disabled" type="submit" value="Login">Register</button>
 					</form>
 				</div>

@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+
+import { CartService } from './Customer/CartService/cart.service';
+import { CheckOutService } from './Customer/CheckoutService/checkout.service';
 
 import { HeaderComponent } from './Customer/Shared/Header/header.component';
 import { AdvantageComponent } from './Customer/Shared/Advantage/advantage.component';
@@ -28,9 +32,10 @@ import { CheckOutComponent } from './Customer/CheckOut/checkout.component';
 import { ContactComponent } from './Customer/Contact/contact.component';
 import { LoginComponent } from './Customer/Login/login.component';
 import { CategoryDetailComponent } from './Customer/CategoryDetail/categorydetail.component';
+import { DialogComponent } from './Customer/DialogProduct/dialog.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule ,HttpModule,appRoutes],
+  imports: [BrowserModule, FormsModule, HttpModule, appRoutes, MaterialModule.forRoot()],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -53,9 +58,11 @@ import { CategoryDetailComponent } from './Customer/CategoryDetail/categorydetai
     CheckOutComponent,
     ContactComponent,
     LoginComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    DialogComponent
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  entryComponents: [DialogComponent],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' },CartService,CheckOutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

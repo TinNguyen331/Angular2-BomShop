@@ -13,8 +13,11 @@ var platform_browser_1 = require('@angular/platform-browser');
 var common_1 = require('@angular/common');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
+var material_1 = require('@angular/material');
 var app_component_1 = require('./app.component');
 var app_routes_1 = require('./app.routes');
+var cart_service_1 = require('./Customer/CartService/cart.service');
+var checkout_service_1 = require('./Customer/CheckoutService/checkout.service');
 var header_component_1 = require('./Customer/Shared/Header/header.component');
 var advantage_component_1 = require('./Customer/Shared/Advantage/advantage.component');
 var slider_component_1 = require('./Customer/Slider/slider.component');
@@ -36,12 +39,13 @@ var checkout_component_1 = require('./Customer/CheckOut/checkout.component');
 var contact_component_1 = require('./Customer/Contact/contact.component');
 var login_component_1 = require('./Customer/Login/login.component');
 var categorydetail_component_1 = require('./Customer/CategoryDetail/categorydetail.component');
+var dialog_component_1 = require('./Customer/DialogProduct/dialog.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes, material_1.MaterialModule.forRoot()],
             declarations: [
                 app_component_1.AppComponent,
                 header_component_1.HeaderComponent,
@@ -64,9 +68,11 @@ var AppModule = (function () {
                 checkout_component_1.CheckOutComponent,
                 contact_component_1.ContactComponent,
                 login_component_1.LoginComponent,
-                categorydetail_component_1.CategoryDetailComponent
+                categorydetail_component_1.CategoryDetailComponent,
+                dialog_component_1.DialogComponent
             ],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
+            entryComponents: [dialog_component_1.DialogComponent],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, cart_service_1.CartService, checkout_service_1.CheckOutService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

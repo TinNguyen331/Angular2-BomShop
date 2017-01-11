@@ -9,82 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var featured_service_1 = require('./featured.service');
+var dialog_component_1 = require('../DialogProduct/dialog.component');
+var material_1 = require('@angular/material');
 var FeatureComponent = (function () {
-    function FeatureComponent(el) {
+    function FeatureComponent(el, featureService, dialog, viewContainerRef) {
         this.el = el;
+        this.featureService = featureService;
+        this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
     }
-    FeatureComponent.prototype.ngAfterViewInit = function () {
-        $(this.el.nativeElement).ready(function () {
-            /*-------------------------------------
-             jquery Featured Products slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 3,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 2],
-            });
-            /*-------------------------------------
-             jquery Featured Products 2 slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel2').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 4,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 2],
-            });
-            /*-------------------------------------
-             jquery Featured product 3 slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel3').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 4,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 4],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 1],
-            });
-            /*-------------------------------------
-             jquery Featured Products 4 slider activation code
-             -------------------------------------*/
-            $('#featured-products-carousel4').owlCarousel({
-                autoPlay: false,
-                slideSpeed: 2000,
-                pagination: false,
-                navigation: true,
-                items: 5,
-                navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [980, 3],
-                itemsTablet: [768, 3],
-                itemsMobile: [479, 1],
-            });
+    FeatureComponent.prototype.open = function (product) {
+        var _this = this;
+        console.log(product);
+        var config = new material_1.MdDialogConfig();
+        config.viewContainerRef = this.viewContainerRef;
+        this.dialogRef = this.dialog.open(dialog_component_1.DialogComponent, config);
+        this.dialogRef.componentInstance.product = product;
+        this.dialogRef.afterClosed().subscribe(function (result) {
+            _this.dialogRef = null;
         });
     };
-    FeatureComponent.prototype.ngOnInit = function () { };
+    FeatureComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log("OnInit");
+        //console.log(this.productList);
+        this.featureService.GetProductList().subscribe(function (response) {
+            _this.productList = response;
+        });
+    };
+    FeatureComponent.prototype.ngAfterViewInit = function () {
+        console.log("On AfterViewInit");
+    };
     FeatureComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-feature',
-            templateUrl: 'featured.component.html'
+            templateUrl: 'featured.component.html',
+            providers: [featured_service_1.FeaturedService]
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
+        __metadata('design:paramtypes', [core_1.ElementRef, featured_service_1.FeaturedService, material_1.MdDialog, core_1.ViewContainerRef])
     ], FeatureComponent);
     return FeatureComponent;
 }());

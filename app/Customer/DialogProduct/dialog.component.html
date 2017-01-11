@@ -1,0 +1,55 @@
+<!-- Modal Dialog Box Start Here-->
+<div id="myModal" class="modal fade in" style="display: block">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <button type="button" class="close myclose" data-dismiss="modal" (click)="dialogRef.close()">&times;</button>
+            <div class="product-details1-area">
+                <div class="product-details-info-area">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="inner-product-details-left">
+                                <div class="tab-content">
+                                    <div id="related1" class="tab-pane fade active in">
+                                        <a class="zoom ex1" href="#"><img class="img-responsive" src="assist/img/product/product-details1.jpg" alt="single"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="inner-product-details-right">
+                                <h3>{{product.productName}}</h3>
+                                <p class="price">{{product.productPrice | currency:'VND':true:'1.0-1'}}</p>
+                                <p>{{product.description}}</p>
+                                
+                                <ul class="product-details-social">
+                                    <li>Share:</li>
+                                    <li><a href="#"><i aria-hidden="true" class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i aria-hidden="true" class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i aria-hidden="true" class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i aria-hidden="true" class="fa fa-pinterest"></i></a></li>
+                                </ul>
+                                <ul class="inner-product-details-cart">
+                                    <li><a (click)="addToCart()">Add To Cart</a></li>
+                                    <li>
+                                        <div class="input-group quantity-holder" id="quantity-holder">
+                                            <input disabled type="text" placeholder="1" [value]="quantity"  min="1" max="10" class="form-control quantity-input" name="quantity">
+                                            <div class="input-group-btn-vertical">
+                                                <button type="button" class="btn btn-default quantity-plus" (click)="onPlus()"><i aria-hidden="true" class="fa fa-plus"></i></button>
+                                                <button type="button" class="btn btn-default quantity-minus" (click)="onMinus()"><i aria-hidden="true" class="fa fa-minus"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a (click)="dialogRef.close()" class="btn-services-shop-now" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+</div>
+<!-- Modal Dialog Box End Here-->

@@ -1,23 +1,17 @@
-import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 declare var $: any;
 @Component({
     moduleId: module.id,
     selector: 'customer-event',
     templateUrl: 'event.component.html'
 })
-export class EventComponent implements OnInit, AfterViewInit {
-    public dateEvent='2017/01/10';
+export class EventComponent implements OnInit {
+    private dateEvent='2017/01/13';
     constructor(private el: ElementRef) { }
-    ngAfterViewInit() {
-        $(this.el.nativeElement).ready(function () {
-            
-            /*-------------------------------------
-            Countdown activation code
-            -------------------------------------*/
-            $('#countdown').countdown('2017/01/10', function (e:any) {
+    ngOnInit() {
+
+         $('#countdown').countdown(this.dateEvent, function (e:any) {
                 $(this).html(e.strftime("<div class='countdown-section'><h3>%-d</h3> <p>day%!d<p> </div><div class='countdown-section'><h3>%H</h3> <p>Hour%!H</p> </div><div class='countdown-section'><h3>%M</h3> <p>Min%!M</p> </div><div class='countdown-section'><h3>%S</h3> <p>Sec%!S</p> </div>"));
-            });
-        });
-    }
-    ngOnInit() { }
+        })
+     }
 }

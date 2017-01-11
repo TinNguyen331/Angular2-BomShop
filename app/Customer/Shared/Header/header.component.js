@@ -10,10 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var header_service_1 = require('./header.service');
+var cart_service_1 = require('../../CartService/cart.service');
 var HeaderComponent = (function () {
-    function HeaderComponent(el, headerService) {
+    function HeaderComponent(el, headerService, cartService) {
+        var _this = this;
         this.el = el;
         this.headerService = headerService;
+        this.cartService = cartService;
+        this.cart = [];
+        this.cartLenght = 0;
+        this.cartService.content.subscribe(function (content) {
+            _this.cart.push(content);
+            _this.cartLenght = _this.cart.length;
+            console.log(_this.cart);
+        });
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -258,7 +268,7 @@ var HeaderComponent = (function () {
             templateUrl: 'header.component.html',
             providers: [header_service_1.HeaderService]
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, header_service_1.HeaderService])
+        __metadata('design:paramtypes', [core_1.ElementRef, header_service_1.HeaderService, cart_service_1.CartService])
     ], HeaderComponent);
     return HeaderComponent;
 }());
