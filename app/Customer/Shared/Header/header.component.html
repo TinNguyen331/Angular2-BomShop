@@ -34,7 +34,7 @@
 															<div class="media">
 																<div class="pull-left cart-product-img">
 																	<a href="#">
-																		<img class="img-responsive" alt="product" src="assist/img/best-seller/4.jpg">
+																		<img class="img-responsive" alt="product" [src]="pro.picture">
 																	</a>
 																</div>
 																<div class="media-body cart-content">
@@ -46,7 +46,7 @@
 																			<p>X {{pro.quantity}}</p>
 																		</li>
 																		<li>
-																			<p>{{pro.productPrice | currency:'VND':true:'1.0-1'}}</p>
+																			<p>{{pro.productPrice | number}} VND</p>
 																		</li>
 																	</ul>
 																</div>
@@ -98,9 +98,9 @@
 															    <form method="post">
 															    	<label>User Name*</label>
 															        <input type="text">
-															        <label>E-mail address *</label>
-															        <input type="email">
 															        <label>Password *</label>
+															        <input type="email">
+															        <label>Re-Password *</label>
 															        <input type="password">
 															        <button value="Login" type="submit" class="btn-side-nav disabled">Register</button>
 															    </form>
@@ -110,16 +110,7 @@
 													</ul>
 													<h3 class="ctg-name-title">Category Name List</h3>
 													<ul class="sidenav-nav">
-														<li><a href="shop1.html"><i class="flaticon-dress-1"></i>Women</a></li>
-														<li><a href="shop2.html"><i class="flaticon-polo"></i>Men</a></li>
-														<li><a href="shop3.html"><i class="flaticon-plug"></i>Electornics</a></li>
-														<li><a href="shop4.html"><i class="flaticon-necklace"></i>Jewellery</a></li>
-														<li><a href="shop5.html"><i class="flaticon-screen"></i>Computer</a></li>
-														<li><a href="shop6.html"><i class="flaticon-headphones"></i>Head Phone</a></li>
-														<li><a href="shop7.html"><i class="flaticon-transport"></i>Toys</a></li>
-														<li><a href="shop1.html"><i class="flaticon-fashion"></i>Shoes</a></li>
-														<li><a href="shop2.html"><i class="flaticon-dress"></i>Kid’s Wear</a></li>
-														<li><a href="shop3.html"><i class="flaticon-technology"></i>Mobile</a></li>
+														<li *ngFor="let category of categories"><a [routerLink]="['/category',category.id]">{{category.categoryName}}</a></li>
 													</ul><!-- times-->
 												</div>
 												<span class="side-menu-open side-menu-trigger"><i class="fa fa-bars" aria-hidden="true"></i></span>

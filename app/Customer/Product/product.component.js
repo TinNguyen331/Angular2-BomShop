@@ -9,17 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var product_service_1 = require('./product.service');
+var dialog_component_1 = require('../DialogProduct/dialog.component');
+var material_1 = require('@angular/material');
 var ProductComponent = (function () {
-    function ProductComponent() {
+    function ProductComponent(productService, el, dialog, viewContainerRef) {
+        this.productService = productService;
+        this.el = el;
+        this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
     }
-    ProductComponent.prototype.ngOnInit = function () { };
+    ProductComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.productService.GetBestSeller().subscribe(function (response) {
+            _this.bestseller = response;
+        });
+    };
+    ProductComponent.prototype.open = function (product) {
+        var _this = this;
+        console.log(product);
+        var config = new material_1.MdDialogConfig();
+        config.viewContainerRef = this.viewContainerRef;
+        this.dialogRef = this.dialog.open(dialog_component_1.DialogComponent, config);
+        this.dialogRef.componentInstance.product = product;
+        this.dialogRef.afterClosed().subscribe(function (result) {
+            _this.dialogRef = null;
+        });
+    };
     ProductComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-product',
-            templateUrl: 'product.component.html'
+            templateUrl: 'product.component.html',
+            providers: [product_service_1.ProductService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [product_service_1.ProductService, core_1.ElementRef, material_1.MdDialog, core_1.ViewContainerRef])
     ], ProductComponent);
     return ProductComponent;
 }());

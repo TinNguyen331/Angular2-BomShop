@@ -10,7 +10,7 @@
                             <div class="inner-product-details-left">
                                 <div class="tab-content">
                                     <div id="related1" class="tab-pane fade active in">
-                                        <a class="zoom ex1" href="#"><img class="img-responsive" src="assist/img/product/product-details1.jpg" alt="single"></a>
+                                        <a class="zoom ex1" href="#"><img class="img-responsive" [src]="product.picture" alt="single"></a>
                                     </div>
                                 </div>
                             </div>
@@ -18,8 +18,9 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="inner-product-details-right">
                                 <h3>{{product.productName}}</h3>
-                                <p class="price">{{product.productPrice | currency:'VND':true:'1.0-1'}}</p>
+                                <p class="price">{{product.productPrice | number}} VND</p>
                                 <p>{{product.description}}</p>
+                                <h4>Color: {{product.mainColor}}</h4>
                                 
                                 <ul class="product-details-social">
                                     <li>Share:</li>

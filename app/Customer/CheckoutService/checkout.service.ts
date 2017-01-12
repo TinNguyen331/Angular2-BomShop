@@ -15,6 +15,7 @@ export class CheckOutService {
     checkout():Observable<any>{
         this.data=new BuyProductModel(1,this.cartService.getCart(),1);
         console.log(this.data);
+        
         return this._http.post(this.apiUrl,this.data).map((response:Response) => response.json());
     }
 }
