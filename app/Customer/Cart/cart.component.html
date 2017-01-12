@@ -37,7 +37,7 @@
 					                <tbody id="quantity-holder">
 					                    <tr *ngFor="let pro of cart">
 					                    	<td class="cart-img-holder">
-					                    		<a href="#"><img src="assist/img/product/cart1.jpg" alt="cart" class="img-responsive"></a>
+					                    		<a href="#"><img [src]="pro.picture" alt="cart" class="img-responsive"></a>
 					                    	</td>
 					                    	<td>
 												<h3><a href="#">{{pro.productName}}</a></h3>
@@ -79,7 +79,7 @@
 								<h3>Subtotal<span>$ 118.00</span></h3>
 								<h3>Total<span>$ 118.00</span></h3>
 								<div class="proceed-button">
-									 <button class="btn-apply-coupon disabled" type="submit" value="Login" (click)="checkout()">Proceed To Checkout</button>
+									 <button class="btn-apply-coupon disabled" type="submit" value="Login" routerLink="/checkout" >Proceed To Checkout</button>
 								</div>
 							</div>
 						</div>

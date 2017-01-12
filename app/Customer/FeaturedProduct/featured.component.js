@@ -12,12 +12,15 @@ var core_1 = require('@angular/core');
 var featured_service_1 = require('./featured.service');
 var dialog_component_1 = require('../DialogProduct/dialog.component');
 var material_1 = require('@angular/material');
+var cart_service_1 = require('../CartService/cart.service');
 var FeatureComponent = (function () {
-    function FeatureComponent(el, featureService, dialog, viewContainerRef) {
+    function FeatureComponent(el, featureService, dialog, viewContainerRef, cartService) {
         this.el = el;
         this.featureService = featureService;
         this.dialog = dialog;
         this.viewContainerRef = viewContainerRef;
+        this.cartService = cartService;
+        this.quantity = 1;
     }
     FeatureComponent.prototype.open = function (product) {
         var _this = this;
@@ -29,6 +32,9 @@ var FeatureComponent = (function () {
         this.dialogRef.afterClosed().subscribe(function (result) {
             _this.dialogRef = null;
         });
+    };
+    FeatureComponent.prototype.addToCart = function (product) {
+        this.cartService.addProduct(product, 1);
     };
     FeatureComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -48,7 +54,7 @@ var FeatureComponent = (function () {
             templateUrl: 'featured.component.html',
             providers: [featured_service_1.FeaturedService]
         }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, featured_service_1.FeaturedService, material_1.MdDialog, core_1.ViewContainerRef])
+        __metadata('design:paramtypes', [core_1.ElementRef, featured_service_1.FeaturedService, material_1.MdDialog, core_1.ViewContainerRef, cart_service_1.CartService])
     ], FeatureComponent);
     return FeatureComponent;
 }());

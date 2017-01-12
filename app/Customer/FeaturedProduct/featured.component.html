@@ -12,9 +12,9 @@
             <div *ngFor="let product of productList" class="col-lg-3 col-md-3 col-sm-4 col-xs-6 on-sale">
                 <div class="product-box1">
                     <ul class="product-social">
-                        <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                        <li><a (click)="open(product)"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                        <li><a style = "cursor: pointer" (click)="addToCart(product)"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                        <li><a style = "cursor: pointer" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                        <li><a style = "cursor: pointer" (click)="open(product)"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                     </ul>
                     <div class="product-img-holder">
                         <a href="#"><img [src]="product.picture" alt="product"></a>

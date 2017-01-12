@@ -12,6 +12,4 @@ export class FeaturedService {
     GetProductList(): Observable<any[]>{
          return this._http.get(this.apiUrl+"/split").map((response:Response) => response.json());
     }
-    
-
 }

@@ -9,16 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var material_1 = require('@angular/material');
+var cart_service_1 = require('../CartService/cart.service');
 var CategoriesComponent = (function () {
-    function CategoriesComponent() {
+    function CategoriesComponent(el, dialog, viewContainerRef, cartService) {
+        this.el = el;
+        this.dialog = dialog;
+        this.viewContainerRef = viewContainerRef;
+        this.cartService = cartService;
+        this.quantity = 1;
     }
+    CategoriesComponent.prototype.addToCart = function (product) {
+        this.cartService.addProduct(product, 1);
+    };
     CategoriesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'customer-categories',
             templateUrl: 'categories.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef, material_1.MdDialog, core_1.ViewContainerRef, cart_service_1.CartService])
     ], CategoriesComponent);
     return CategoriesComponent;
 }());

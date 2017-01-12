@@ -11,19 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
-var FeaturedService = (function () {
-    function FeaturedService(_http) {
+var CategoryDetailsService = (function () {
+    function CategoryDetailsService(_http) {
         this._http = _http;
-        this.apiUrl = "http://localhost:8080/product";
+        this.apiUrl = "http://localhost:8080/product/getcateid/";
     }
-    FeaturedService.prototype.GetProductList = function () {
-        return this._http.get(this.apiUrl + "/split").map(function (response) { return response.json(); });
+    CategoryDetailsService.prototype.getCategoryDetailsList = function (id) {
+        return this._http.get(this.apiUrl + id).map(function (response) { return response.json(); });
     };
-    FeaturedService = __decorate([
+    CategoryDetailsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], FeaturedService);
-    return FeaturedService;
+    ], CategoryDetailsService);
+    return CategoryDetailsService;
 }());
-exports.FeaturedService = FeaturedService;
+exports.CategoryDetailsService = CategoryDetailsService;
 //# sourceMappingURL=categorydetail.service.js.map

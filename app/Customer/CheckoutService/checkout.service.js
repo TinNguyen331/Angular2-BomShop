@@ -17,13 +17,26 @@ var CheckOutService = (function () {
     function CheckOutService(cartService, _http) {
         this.cartService = cartService;
         this._http = _http;
+        this.cusID = null;
         this.apiUrl = "http://localhost:8080/buyproduct";
         console.log(this.cartService.getCart());
     }
     CheckOutService.prototype.checkout = function () {
-        this.data = new BuyProductModel_1.BuyProductModel(1, this.cartService.getCart(), 1);
+        this.data = new BuyProductModel_1.BuyProductModel(this.cusID.id, this.cartService.getCart(), 1);
         console.log(this.data);
         return this._http.post(this.apiUrl, this.data).map(function (response) { return response.json(); });
+    };
+    CheckOutService.prototype.setCusID = function (user) {
+        console.log("User in service");
+        console.log(user);
+        this.cusID = user;
+        console.log("User after set");
+        console.log(this.cusID);
+    };
+    CheckOutService.prototype.getCusID = function () {
+        console.log("Return value service");
+        console.log(this.cusID);
+        return this.cusID;
     };
     CheckOutService = __decorate([
         core_1.Injectable(), 

@@ -10,11 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var cart_service_1 = require('../CartService/cart.service');
-var checkout_service_1 = require('../CheckoutService/checkout.service');
 var CartComponent = (function () {
-    function CartComponent(cartService, checkoutService) {
+    function CartComponent(cartService) {
         this.cartService = cartService;
-        this.checkoutService = checkoutService;
         this.cart = [];
     }
     CartComponent.prototype.onPlus = function (pro) {
@@ -30,13 +28,6 @@ var CartComponent = (function () {
     CartComponent.prototype.updateCart = function () {
         this.cartService.updateCart(this.cart);
     };
-    CartComponent.prototype.checkout = function () {
-        this.checkoutService.checkout().subscribe(function (response) {
-            console.log(response);
-        }, function (error) {
-            console.log(error);
-        });
-    };
     CartComponent.prototype.ngOnInit = function () {
         this.cart = this.cartService.getCart();
     };
@@ -46,7 +37,7 @@ var CartComponent = (function () {
             selector: 'customer-cart',
             templateUrl: 'cart.component.html'
         }), 
-        __metadata('design:paramtypes', [cart_service_1.CartService, checkout_service_1.CheckOutService])
+        __metadata('design:paramtypes', [cart_service_1.CartService])
     ], CartComponent);
     return CartComponent;
 }());

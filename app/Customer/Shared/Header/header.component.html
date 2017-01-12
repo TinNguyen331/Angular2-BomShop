@@ -136,9 +136,8 @@
 												<li><a href="#">Categories</a>
 													<ul>
 														<li *ngFor="let category of categories">
-															<a [routerLink]="['/category',category.id]">{{category.categoryName}}</a>
+															<a [routerLink]="['/category',category.id]" routerLinkActive="active">{{category.categoryName}}</a>
 														</li>
-														
 													</ul>
 												</li>
 												<li><a href="#">Color</a></li>

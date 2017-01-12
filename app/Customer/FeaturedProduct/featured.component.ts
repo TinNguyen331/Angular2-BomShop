@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { MaterialModule } from '@angular/material';
 import { DialogComponent } from '../DialogProduct/dialog.component';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { CartService } from '../CartService/cart.service';
 declare var $: any;
 
 @Component({
@@ -13,10 +14,13 @@ declare var $: any;
     providers: [FeaturedService]
 })
 export class FeatureComponent implements OnInit, AfterViewInit {
-     dialogRef: MdDialogRef<any>;
+    dialogRef: MdDialogRef<any>;
+    product: any;
+    quantity: number = 1;
     private productList: any[];
 
-    constructor(private el: ElementRef, private featureService: FeaturedService, public dialog: MdDialog, public viewContainerRef: ViewContainerRef) {
+    constructor(private el: ElementRef, private featureService: FeaturedService, public dialog: MdDialog, public viewContainerRef: ViewContainerRef,
+        private cartService: CartService) {
     }
 
     open(product: any) {
@@ -30,6 +34,9 @@ export class FeatureComponent implements OnInit, AfterViewInit {
             this.dialogRef = null;
         });
 
+    }
+    addToCart(product: any) {
+        this.cartService.addProduct(product, 1);
     }
     ngOnInit() {
         console.log("OnInit");
